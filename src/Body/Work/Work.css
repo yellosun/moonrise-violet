@@ -1,0 +1,7 @@
+.vertical-timeline:before {
+	background: black;
+}
+
+.vertical-timeline-element-date {
+	display: none !important;
+}
