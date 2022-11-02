@@ -1,14 +1,10 @@
-const linkedin = require('../../assets/linkedin.svg')
-const github = require('../../assets/github.svg')
-const location = require('../../assets/location.svg')
-const email = require('../../assets/email.svg')
-const person = require('../../assets/person.svg')
+import { email, person, location, github, linkedin } from '../../assets/contact'
 
 export const icons = {
     PERSON: {
         icon: person,
         link: null,
-        text: 'she/her',
+        text: 'she/they',
         color: '#cadde2',
     },
     LOCATION: {
@@ -19,7 +15,7 @@ export const icons = {
     },
     EMAIL: {
         icon: email,
-        link: 'mailto:vltmxn@gmail.com',
+        link: 'mailto:violetwmoon@gmail.com',
         text: 'email',
         color: '#87b3ce',
     },

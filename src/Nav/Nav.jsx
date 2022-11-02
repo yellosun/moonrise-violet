@@ -3,36 +3,38 @@ import { Link, useLocation } from "react-router-dom";
 import { routes, pdfLink } from "./constants";
 
 export function Routes({ selectedRoute, changeRoute }) {
-  return Object.values(routes).map((page) => {
+  return Object.values(routes).map((page, i) => {
     const isSelected = page.route === selectedRoute;
 
     return (
-      <div className={`m-2 ${isSelected && "flex items-center justify-center border-r-[1px] border-b-[1px] -mr-[9px] border-black"}`}>
-        {page.route === routes.RESOURCES.route ? (
-            <div className={routeContainer}>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className={link}
-            href={pdfLink}
-          >
-            Resources
-          </a>
-          </div>
-        ) : (
-          <div
-            key={page.route}
-            className={routeContainer}
-            onClick={() => changeRoute(page.route)}
-          >
-            <Link
-              to={page.route}
-              style={{ ...link }}
+      <div
+        key={i}
+        className={`m-2 flex items-center justify-center font-bold ${
+          isSelected && "-mr-[10px] italic"
+        }`}
+      >
+        {/* {page.route === routes.RESOURCES.route ? (
+          <div className={routeContainer}>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className={link}
+              href={pdfLink}
             >
-              {page.label}
-            </Link>
+              Resources
+            </a>
           </div>
-        )}
+        ) : ( */}
+        <div
+          key={page.route}
+          className={routeContainer}
+          onClick={() => changeRoute(page.route)}
+        >
+          <Link to={page.route} style={{ ...link }}>
+            {page.label}
+          </Link>
+        </div>
+        {/* )} */}
       </div>
     );
   });

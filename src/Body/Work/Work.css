@@ -1,7 +1,27 @@
-.vertical-timeline:before {
-	background: black;
+.vertical-timeline::before {
+  width: 2px;
+  background-color: rgb(217, 217, 217);
+  display: none;
 }
 
-.vertical-timeline-element-date {
-	display: none !important;
+.vertical-timeline {
+  height: 100vh;
 }
+
+.vertical-timeline-element {
+  margin: 0px;
+}
+
+.vertical-timeline-element-icon img {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 2px;
+  background-color: white;
+}
+
+/* #7b3a0b
+#52290c
+#412720
+#705703
+#7b881e
+#8c3a00 */

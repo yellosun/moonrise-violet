@@ -1,197 +1,134 @@
-import React, { useState } from 'react';
-import Grow from '@material-ui/core/Grow'
-import { projects } from './constants'
-
-const Paper = require('../../assets/paper.jpg')
+import React, { useState } from "react";
+import Grow from "@material-ui/core/Grow";
+import { projects } from "./constants";
 
 export function Links({ actions }) {
-    const [viewHover, setViewHover] = useState(false)
-    const [codeHover, setCodeHover] = useState(false)
+  const [viewHover, setViewHover] = useState(false);
+  const [codeHover, setCodeHover] = useState(false);
 
-    const viewLinkStyle = {
-        ...linkAction,
-        transform: viewHover ? 'scale(1.2)' : ''
-    }
+  const viewLinkStyle = {
+    ...linkAction,
+    transform: viewHover ? "scale(1.2)" : "",
+  };
 
-    const codeLinkStyle = {
-        ...linkAction,
-        transform: codeHover ? 'scale(1.2)' : ''
-    }
+  const codeLinkStyle = {
+    ...linkAction,
+    transform: codeHover ? "scale(1.2)" : "",
+  };
 
-    return (
-        <div
-            style={linkContainer}
-        >
-            {actions.view && (
-                <a target='_blank' rel='noopener noreferrer' href={actions.view.link}>
-                    <img
-                        rel='preload'
-                        style={viewLinkStyle}
-                        onMouseOver={() => setViewHover(true)}
-                        onMouseOut={() => setViewHover(false)}
-                        src={actions.view.img}
-                        alt={'hand-written `view` inside box'}
-                    />
-                </a>
-            )}
-            {actions.code && (
-                <a target='_blank' rel='noopener noreferrer' href={actions.code.link}>
-                    <img
-                        rel='preload'
-                        style={codeLinkStyle}
-                        onMouseOver={() => setCodeHover(true)}
-                        onMouseOut={() => setCodeHover(false)}
-                        src={actions.code.img}
-                        alt={'hand-written `code` inside box'}
-                    />
-                </a>
-            )}
-        </div>
-    )
+  return (
+    <div className={linkContainer}>
+      {actions.view && (
+        <a target="_blank" rel="noopener noreferrer" href={actions.view.link}>
+          <img
+            rel="preload"
+            className={linkAction}
+            onMouseOver={() => setViewHover(true)}
+            onMouseOut={() => setViewHover(false)}
+            src={actions.view.img}
+            alt={"hand-written `view` inside box"}
+          />
+        </a>
+      )}
+      {actions.code && (
+        <a target="_blank" rel="noopener noreferrer" href={actions.code.link}>
+          <img
+            rel="preload"
+            className={linkAction}
+            onMouseOver={() => setCodeHover(true)}
+            onMouseOut={() => setCodeHover(false)}
+            src={actions.code.img}
+            alt={"hand-written `code` inside box"}
+          />
+        </a>
+      )}
+    </div>
+  );
 }
 
 export function Card(props) {
-    const [hover, setHover] = useState(false)
+  const [hover, setHover] = useState(false);
 
-    const cardStyle = {
-        ...card,
-        marginBottom: !props.lastCard && hover ? -50 : -200,
-    }
+  // const cardStyle = card + ` -mt-[${ hover ? '50px' : '200px'}] ${!props.lastCard && 'mt-0'}`
 
-    const onCardClick = () => {
-        return !props.lastCard && props.nextCard(props.id)
-    }
+  const onCardClick = () => {
+    return !props.lastCard && props.nextCard(props.id);
+  };
 
-    return (
-        <div
-            onMouseOver={() => setHover(true)}
-            onMouseOut={() => setHover(false)}
-            onClick={onCardClick}
-            style={cardStyle}
-        >
-            <div>
-                <img
-                    src={props.img}
-                    style={demoImg}
-                    alt={`screenshot of ${props.name} project`}
-                />
-            </div>
-            {props.lastCard && (
-                <div style={cardText}>
-                    <div>{props.name}</div>
-                    <div style={desc}>{props.description}</div>
-                    <div style={actionContainer}>
-                        <div style={stackContainer}>
-                            {props.stack.map((item) => <div style={stack}>{item}</div>)}
-                        </div>
-                        <Links actions={props.actions} />
-                    </div>
-                </div>
-            )}
+  return (
+    <div
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
+      //   onClick={onCardClick}
+      className={card}
+    >
+      <img
+        src={props.img}
+        className={demoImg}
+        alt={`screenshot of ${props.name} project`}
+      />
+
+      <div className={cardText}>
+        <div className="text-md font-semibold">{props.name}</div>
+        <div className={desc}>{props.description}</div>
+        <div className={actionContainer}>
+          <div className={stackContainer}>
+            {props.stack.map((item, i) => (
+              <div className={stack} key={i}>
+                {item}
+              </div>
+            ))}
+          </div>
+          {/* <Links actions={props.actions} /> */}
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
 export default function Projects() {
-    const projectValues = Object.values(projects)
-    const [cards, setCards] = useState(projectValues)
+  const projectValues = Object.values(projects);
+  const [cards, setCards] = useState(projectValues);
 
-    const nextCard = (id) => {
-        const selectedCard = projects[id]
-        let newCards
+  const nextCard = (id) => {
+    const selectedCard = projects[id];
+    let newCards;
 
-        if (selectedCard) {
-            const filteredCards = cards.filter((card) => card.id !== id)
-            newCards = [...filteredCards, selectedCard]
-        } else {
-            const last = cards.pop()
-            newCards = [last, ...cards]
-        }
-
-        setCards(newCards)
+    if (selectedCard) {
+      const filteredCards = cards.filter((card) => card.id !== id);
+      newCards = [...filteredCards, selectedCard];
+    } else {
+      const last = cards.pop();
+      newCards = [last, ...cards];
     }
 
-    return (
-        <div style={container}>
-        <Grow in={true} {...({ timeout: 700 })}>
-            <div>
-                {cards.map((card, index) => {
-                    const lastCard = projectValues.length - 1 === index
-                    const cardProps = {...card, lastCard, nextCard}
-                    return <Card {...cardProps} />
-                })}
-            </div>
-        </Grow>
-        </div>
-    );
+    setCards(newCards);
+  };
+
+  return (
+    <Grow in={true} {...{ timeout: 700 }}>
+      <div className={container}>
+        {cards.map((card, index) => {
+          const lastCard = projectValues.length - 1 === index;
+          const cardProps = { ...card, lastCard, nextCard };
+          return <Card {...cardProps} key={card.name} />;
+        })}
+      </div>
+    </Grow>
+  );
 }
 
-const container = {
-    display: 'flex',
-    flexFlow: 'column wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    width: '100%',
-    marginTop: -200,
-    transition: 'all ease 3s',
-    background: `center / contain no-repeat url(${Paper})`
-}
+const container =
+  "flex flex-col flex-nowrap items-center justify-center h-full w-3/4 mt-[400px]";
 
-const card = {
-    display: 'flex',
-    flexDirection: 'column',
-    width: 450,
-    backgroundColor: 'white',
-    transition: 'all ease .5s',
-    boxShadow: '-1px 1px 10px .1px rgba(0, 0, 0, 0.14)'
-}
+const card = "flex h-[200px] pt-10 bg-white";
+const cardText = "pl-8";
+const demoImg = "cursor-pointer w-1/3 h-auto";
+const desc = "font-normal mt-2";
 
-const cardText = {
-    padding: 15,
-}
-
-const demoImg = {
-    width: 450,
-    cursor: 'pointer',
-}
-
-const desc = {
-    fontWeight: 500,
-    marginTop: 5
-}
-
-const actionContainer = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    paddingTop: 10
-}
-
-const stackContainer = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-}
-
-const stack = {
-    ...desc,
-    fontStyle: 'italic',
-    fontSize: 11,
-    backgroundColor: '#dcbf7c',
-    borderRadius: 10,
-    padding: '3px 7px',
-    marginRight: 5
-}
-
-const linkContainer = {
-    marginBottom: -10,
-    transition: 'all ease .3s',
-}
-
-const linkAction = {
-    height: '100%',
-    width: 60,
-    marginLeft: 5
-}
+const actionContainer = "flex flex-col w-full pt-[10px]";
+const stackContainer = "flex items-center";
+const stack =
+  "italic flex whitespace-nowrap flex-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2";
+const linkContainer = "flex";
+const linkAction = "h-full w-[40px] ml-[5px]";

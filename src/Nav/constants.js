@@ -9,15 +9,11 @@ export const routes = {
         route: '/projects'
     },
     WORK: {
-        label: 'Work',
-        route: '/work'
+        label: 'Experience',
+        route: '/experience'
     },
     CONTACT: {
         label: 'Contact',
         route: '/contact'
-    },
-    RESOURCES: {
-        label: 'Resources',
-        route: '/resources'
     }
 }
