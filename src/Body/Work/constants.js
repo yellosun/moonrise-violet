@@ -13,8 +13,9 @@ const WorkIcon = (
   <img style={icon} src={computer} alt={"hand-drawn icon of laptop"} />
 );
 
-const schoolBg = '#00000012'
-const workBg = "#d6d100";
+const schoolBg = '#b6aaa0'
+// const workBg = "#c4946d";
+const workBg = "#c4946d57";
 
 export const metier = {
   VILL: {

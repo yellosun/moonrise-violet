@@ -11,10 +11,11 @@ export function TimelineElement({
   icon,
   position,
   description,
+  backgroundColor,
   place,
   time,
   location,
-  placeLink
+  placeLink,
 }) {
   return (
     <VerticalTimelineElement
@@ -23,16 +24,21 @@ export function TimelineElement({
       iconStyle={iconStyle}
       icon={icon}
     >
-      <div className="flex justify-between items-center">
+      <div
+        className="flex justify-between rounded-t-md py-1 px-3 items-center"
+        style={{ backgroundColor }}
+      >
         <div className="font-bold text-md">{position}</div>
         <div className={"text-xs underline"}>
-			<a href={placeLink}>{place}</a>
-			</div>
+          <a href={placeLink}>{place}</a>
+        </div>
       </div>
-      <div className="italic text-xs my-4 bg-white rounded-md border-2 p-4">{description}</div>
-      <div className="flex justify-between items-center">
-        <div className="text-xs">{time}</div>
-        <div className="text-xs">{location}</div>
+      <div className="border-2 rounded-b-md p-4">
+        <div className="text-xs mb-4">{description}</div>
+        <div className="flex justify-between items-center">
+          <div className="text-xs">{time}</div>
+          <div className="text-xs">{location}</div>
+        </div>
       </div>
     </VerticalTimelineElement>
   );
@@ -50,16 +56,16 @@ export default function Work() {
   );
 }
 
-const container =
-  "flex flex-col flex-nowrap justify-center items-center";
+const container = "flex flex-col flex-nowrap justify-center items-center";
 
 const contentStyle = {
-  boxShadow: "rgb(0 0 0 / 0%) -1px 1px 10px 0.1px",
+  boxShadow: "none",
   marginTop: 0,
+  padding: 0,
 };
 
 const contentArrowStyle = {
-  borderRight: "7px solid black",
+  display: "none",
 };
 
 const iconStyle = {

@@ -17,7 +17,7 @@ export function Links({ actions }) {
   };
 
   return (
-    <div className={linkContainer}>
+    <div className='flex'>
       {actions.view && (
         <a target="_blank" rel="noopener noreferrer" href={actions.view.link}>
           <img
@@ -49,17 +49,10 @@ export function Links({ actions }) {
 export function Card(props) {
   const [hover, setHover] = useState(false);
 
-  // const cardStyle = card + ` -mt-[${ hover ? '50px' : '200px'}] ${!props.lastCard && 'mt-0'}`
-
-  const onCardClick = () => {
-    return !props.lastCard && props.nextCard(props.id);
-  };
-
   return (
     <div
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
-      //   onClick={onCardClick}
       className={card}
     >
       <img
@@ -68,11 +61,11 @@ export function Card(props) {
         alt={`screenshot of ${props.name} project`}
       />
 
-      <div className={cardText}>
+      <div className="md:pl-8 pt-4 md:pt-0">
         <div className="text-md font-semibold">{props.name}</div>
-        <div className={desc}>{props.description}</div>
+        <div className="font-normal mt-2">{props.description}</div>
         <div className={actionContainer}>
-          <div className={stackContainer}>
+          <div className="flex items-center flex-wrap md:flex-nowrap">
             {props.stack.map((item, i) => (
               <div className={stack} key={i}>
                 {item}
@@ -118,17 +111,12 @@ export default function Projects() {
   );
 }
 
-const container =
-  "flex flex-col flex-nowrap items-center justify-center h-full w-3/4 mt-[400px]";
-
-const card = "flex h-[200px] pt-10 bg-white";
-const cardText = "pl-8";
-const demoImg = "cursor-pointer w-1/3 h-auto";
-const desc = "font-normal mt-2";
-
-const actionContainer = "flex flex-col w-full pt-[10px]";
-const stackContainer = "flex items-center";
-const stack =
-  "italic flex whitespace-nowrap flex-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2";
-const linkContainer = "flex";
+const card = "flex flex-col md:flex-row md:h-[200px] pb-10 bg-white";
+const demoImg = "cursor-pointer rounded-sm md:w-1/3 h-[fit-content]";
+const actionContainer = "flex flex-col w-full md:pt-[10px]";
 const linkAction = "h-full w-[40px] ml-[5px]";
+
+const stack =
+"italic flex whitespace-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2 mt-2 md:mt-0";
+const container =
+  "flex flex-col flex-nowrap items-center justify-center h-full w-3/4 mt-[1800px] sm:mt-[2000px] md:mt-[400px]";

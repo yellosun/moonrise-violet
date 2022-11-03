@@ -35,7 +35,7 @@ export const projects = {
     description:
       "Built crypto sentiment analysis desktop and mobile frontend, admin management platform, and telegram bot.",
     img: ceq,
-    stack: ["React", "Redux", "JS"],
+    stack: ["React", "Redux", "JS", "Telegram Bot API"],
     actions: {
       view: {
         link: "https://www.cryptoeq.io/dashboard",
@@ -79,7 +79,7 @@ export const projects = {
     description:
       "Architected admin permissions and permissions editing modal series, and built dataset importer panels.",
     img: crunch,
-    stack: ["React", "Redux Sagas", "Angular1", "JS", "TS"],
+    stack: ["React", "Redux Sagas", "Angular1", "TS", "Storybook"],
     actions: {
       view: {
         link: "https://crunch.io/powerful-survey-analytics/",
