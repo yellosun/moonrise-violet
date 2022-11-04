@@ -6,7 +6,11 @@ import Switch from "./Switch";
 import { default as Bio } from "../../assets/bio.svg";
 
 const Portrait = "https://avatars.githubusercontent.com/u/40186534?v=4";
-
+// #703427
+// #84220d
+// #a8331a
+// #491510
+// #70241a
 export default function About() {
   const [isText, setTextView] = useState(false);
 
@@ -59,12 +63,11 @@ export default function About() {
   );
 }
 
-const container = "flex items-center";
-const btnGroup =
-  container + " absolute bottom-0 -mb-[30px] text-xs cursor-pointer";
-const bioContainer = "justify-between flex relative flex-col h-[220px]";
+const container = "flex rounded-sm items-center";
+const btnGroup ="flex absolute left-0 bottom-0 -mb-6 cursor-pointer";
+const bioContainer = " -mt-4 flex relative flex-col h-[220px] border-[1px] rounded-[100%] border-[#ce9080]";
 const blurbImg = "h-auto w-[350px]";
-const imgContainer = "flex";
-const portImg = "h-auto w-[220px] mr-[40px] rounded-sm";
+const imgContainer = "flex bg-[#491510] p-4 rounded-full rounded-r-none pr-0 mr-[40px]";
+const portImg = "h-auto w-[220px] rounded-lg rounded-r-none";
 const title = "font-bold text-lg mb-[10px]";
-const textBlurb = blurbImg + " font-[300] leading-1";
+const textBlurb = blurbImg + " font-[400] leading-1";

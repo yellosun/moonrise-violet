@@ -7,3 +7,4 @@ export { default as crunch } from "./crunch.jpg";
 export { default as boba } from "./boba.jpg";
 export { default as awake } from "./awake.png";
 export { default as five } from "./five.jpg";
+export { default as willo } from "./willo.jpg";

@@ -65,7 +65,7 @@ export function Card(props) {
         <div className="text-md font-semibold">{props.name}</div>
         <div className="font-normal mt-2">{props.description}</div>
         <div className={actionContainer}>
-          <div className="flex items-center flex-wrap md:flex-nowrap">
+          <div className="flex items-center flex-wrap">
             {props.stack.map((item, i) => (
               <div className={stack} key={i}>
                 {item}
@@ -113,10 +113,10 @@ export default function Projects() {
 
 const card = "flex flex-col md:flex-row md:h-[200px] pb-10 bg-white";
 const demoImg = "cursor-pointer rounded-sm md:w-1/3 h-[fit-content]";
-const actionContainer = "flex flex-col w-full md:pt-[10px]";
+const actionContainer = "flex flex-col w-full";
 const linkAction = "h-full w-[40px] ml-[5px]";
 
 const stack =
-"italic flex whitespace-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2 mt-2 md:mt-0";
+"italic flex whitespace-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2 mt-2";
 const container =
   "flex flex-col flex-nowrap items-center justify-center h-full w-3/4 mt-[1800px] sm:mt-[2000px] md:mt-[400px]";
