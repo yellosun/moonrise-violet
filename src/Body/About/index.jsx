@@ -63,9 +63,9 @@ export default function About() {
   );
 }
 
-const container = "flex rounded-sm items-center";
-const btnGroup ="flex absolute left-0 bottom-0 -mb-6 cursor-pointer";
-const bioContainer = " -mt-4 flex relative flex-col h-[220px] border-[1px] rounded-[100%] border-[#ce9080]";
+const container = "flex flex-col md:flex-row rounded-sm items-center";
+const btnGroup ="flex absolute left-0 bottom-0 -mb-10 md:-mb-6 cursor-pointer";
+const bioContainer = " md:-mt-4 flex relative flex-col h-[220px] border-[1px] rounded-[100%] border-[#ce9080]";
 const blurbImg = "h-auto w-[350px]";
 const imgContainer = "flex bg-[#491510] p-4 rounded-full rounded-r-none pr-0 mr-[40px]";
 const portImg = "h-auto w-[220px] rounded-lg rounded-r-none";
