@@ -17,6 +17,6 @@ export default function Home() {
 }
 
 const container =
-  "flex items-center justify-center h-screen text-sm font-[500] font-poppins";
+  "flex justify-center h-screen text-sm font-[500] font-poppins";
 const content =
-  "h-[800px] w-[1100px] flex items-center transition ease-in-out delay-150";
+  "h-[800px] w-[1100px] flex transition ease-in-out delay-150";

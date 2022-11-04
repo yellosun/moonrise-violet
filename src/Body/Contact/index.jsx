@@ -19,7 +19,7 @@ export function Icon({ icon, link, text, color, positionTop }) {
       rel="noopener noreferrer"
       href={link}
     >
-      <div style={{ ...iconContainer }}>
+      <div style={{ ...iconContainer, backgroundColor: color }}>
         <img
           rel="preload"
           style={linkStyle}
@@ -52,7 +52,6 @@ const child = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  marginTop: -40,
 };
 const container = {
   ...child,
@@ -64,8 +63,7 @@ const iconContainer = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  borderRadius: "10%",
-  height: 80,
+  height: '100vh',
   width: 80,
 };
 
@@ -80,6 +78,7 @@ const iconStyle = {
   width: 40,
   margin: 10,
   transition: "all ease .3s",
+  marginTop: -40,
 };
 
 const href = {

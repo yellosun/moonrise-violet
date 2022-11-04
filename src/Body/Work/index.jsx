@@ -3,15 +3,30 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import { metier } from "./constants";
 import "react-vertical-timeline-component/style.min.css";
+import { metier } from "./constants";
+import { school, computer } from "../../assets/work";
 import "./Work.css";
 
+const SchoolIcon = (
+  <img
+    className="w-full h-full"
+    src={school}
+    alt={"hand-drawn icon of graduation cap"}
+  />
+);
+const WorkIcon = (
+  <img
+    className="w-full h-full"
+    src={computer}
+    alt={"hand-drawn icon of laptop"}
+  />
+);
+
 export function TimelineElement({
-  icon,
   position,
   description,
-  backgroundColor,
+  work,
   place,
   time,
   location,
@@ -21,23 +36,24 @@ export function TimelineElement({
     <VerticalTimelineElement
       contentStyle={{ ...contentStyle }}
       contentArrowStyle={contentArrowStyle}
-      iconStyle={iconStyle}
-      icon={icon}
+      iconStyle={work ? workIconStyle : iconStyle}
+      icon={work ? WorkIcon : SchoolIcon}
     >
       <div
-        className="flex justify-between rounded-t-md py-1 px-3 items-center"
-        style={{ backgroundColor }}
+        className="rounded-t-md px-2 items-center"
+        style={work ? { borderBottom: "10px solid #491510" } : {}}
       >
         <div className="font-bold text-md">{position}</div>
-        <div className={"text-xs underline"}>
+        <div className={`text-xs ${placeLink && "underline"}`}>
           <a href={placeLink}>{place}</a>
         </div>
-      </div>
-      <div className="border-2 rounded-b-md p-4">
-        <div className="text-xs mb-4">{description}</div>
-        <div className="flex justify-between items-center">
-          <div className="text-xs">{time}</div>
-          <div className="text-xs">{location}</div>
+
+        <div className={`py-4`}>
+          <div className={`text-xs mb-4 text-gray-500`}>{description}</div>
+          <div className="flex justify-between flex-col">
+            <div className="text-xs font-bold ">{time}</div>
+            <div className="text-xs">{location}</div>
+          </div>
         </div>
       </div>
     </VerticalTimelineElement>
@@ -71,4 +87,10 @@ const contentArrowStyle = {
 const iconStyle = {
   boxShadow: "none",
   color: "white",
+  borderBottom: '30px solid #a9a9a942'
+};
+
+const workIconStyle = {
+  boxShadow: "none",
+  borderBottom: '30px solid black'
 };

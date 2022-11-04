@@ -5,30 +5,34 @@ export const icons = {
         icon: person,
         link: null,
         text: 'she/they',
-        color: '#cadde2',
+        color: '#e5ddd7',
+        
     },
     LOCATION: {
         icon: location,
         link: null,
         text: 'remote',
-        color: '#96b7d6',
+        color: '#491510',
+        
     },
     EMAIL: {
         icon: email,
         link: 'mailto:violetwmoon@gmail.com',
         text: 'email',
-        color: '#87b3ce',
+        color: 'darkgray',
+        
     },
     GITHUB: {
         icon: github,
         link: 'https://github.com/yellosun',
         text: 'github',
-        color: '#baa3d8',
+        color: '#4d3036',
+        
     },
     LINKEDIN: {
         icon: linkedin,
         link: 'https://www.linkedin.com/in/violetmoon/',
         text: 'linkedin',
-        color: '#a6abe7',
+        color: 'gray',
     },
 }

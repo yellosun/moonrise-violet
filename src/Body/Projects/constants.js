@@ -102,7 +102,7 @@ export const projects = {
     description:
       "Built daily log entry and meditation timer with visually aggregated data, and mindfulness-based quotes API.",
     img: awake,
-    stack: ["Ruby on Rails", "React", "Redux", "JS", "Desktop"],
+    stack: ["Ruby on Rails", "React", "Redux", "JS", "Custom API", "Desktop"],
     actions: {
       view: null,
       code: {

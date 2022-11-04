@@ -2,77 +2,63 @@ import React, { useState } from "react";
 import Grow from "@material-ui/core/Grow";
 import { projects } from "./constants";
 
-export function Links({ actions }) {
-  const [viewHover, setViewHover] = useState(false);
-  const [codeHover, setCodeHover] = useState(false);
-
-  const viewLinkStyle = {
-    ...linkAction,
-    transform: viewHover ? "scale(1.2)" : "",
-  };
-
-  const codeLinkStyle = {
-    ...linkAction,
-    transform: codeHover ? "scale(1.2)" : "",
-  };
-
-  return (
-    <div className='flex'>
-      {actions.view && (
-        <a target="_blank" rel="noopener noreferrer" href={actions.view.link}>
-          <img
-            rel="preload"
-            className={linkAction}
-            onMouseOver={() => setViewHover(true)}
-            onMouseOut={() => setViewHover(false)}
-            src={actions.view.img}
-            alt={"hand-written `view` inside box"}
-          />
-        </a>
-      )}
-      {actions.code && (
-        <a target="_blank" rel="noopener noreferrer" href={actions.code.link}>
-          <img
-            rel="preload"
-            className={linkAction}
-            onMouseOver={() => setCodeHover(true)}
-            onMouseOut={() => setCodeHover(false)}
-            src={actions.code.img}
-            alt={"hand-written `code` inside box"}
-          />
-        </a>
-      )}
-    </div>
-  );
-}
-
-export function Card(props) {
+export function Card({ actions, name, description, img, stack }) {
   const [hover, setHover] = useState(false);
 
   return (
-    <div
-      onMouseOver={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
-      className={card}
-    >
-      <img
-        src={props.img}
+    <div className={card}>
+      <div
         className={demoImg}
-        alt={`screenshot of ${props.name} project`}
-      />
-
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+      >
+        {hover && (
+          <div
+            className={
+              "flex justify-center items-center w-full h-full absolute bg-black text-white"
+            }
+          >
+            <div className="flex justify-around w-full items-center">
+              {actions.view && (
+                <a
+                className={linkAction}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={actions.view.link}
+                >
+                  view
+                </a>
+              )}
+              {actions.code && (
+                <a
+                className={linkAction}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={actions.code.link}
+                >
+                  code
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+        <img
+          src={img}
+          className={"w-[250px] max-w-none"}
+          alt={`screenshot of ${name} project`}
+        />
+      </div>
       <div className="md:pl-8 pt-4 md:pt-0">
-        <div className="text-md font-semibold">{props.name}</div>
-        <div className="font-normal mt-2">{props.description}</div>
+        <div className="text-md font-semibold">{name}</div>
+        <div className="font-normal mt-2">{description}</div>
         <div className={actionContainer}>
           <div className="flex items-center flex-wrap">
-            {props.stack.map((item, i) => (
-              <div className={stack} key={i}>
+            {stack.map((item, i) => (
+              <div className={stackStyle} key={i}>
                 {item}
               </div>
             ))}
           </div>
-          {/* <Links actions={props.actions} /> */}
         </div>
       </div>
     </div>
@@ -111,12 +97,12 @@ export default function Projects() {
   );
 }
 
-const card = "flex flex-col md:flex-row md:h-[200px] pb-10 bg-white";
-const demoImg = "cursor-pointer rounded-sm md:w-1/3 h-[fit-content]";
+const card = "flex flex-col md:flex-row md:h-[200px] pb-10 bg-white w-3/4";
+const demoImg = "relative cursor-pointer rounded-sm md:w-[250px] h-[145px]";
 const actionContainer = "flex flex-col w-full";
 const linkAction = "h-full w-[40px] ml-[5px]";
 
-const stack =
-"italic flex whitespace-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2 mt-2";
+const stackStyle =
+  "italic flex whitespace-nowrap text-xs bg-[#a9a9a942] rounded-sm py-2 px-4 mr-2 mt-2";
 const container =
-  "flex flex-col flex-nowrap items-center justify-center h-full w-3/4 mt-[1800px] sm:mt-[2000px] md:mt-[400px]";
+  "flex flex-col flex-nowrap items-center justify-start mt-20 h-full w-full";

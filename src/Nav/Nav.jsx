@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { routes, pdfLink } from "./constants";
+import { routes, pdfLink, repoLink } from "./constants";
 
 export function Routes({ selectedRoute, changeRoute }) {
   return Object.values(routes).map((page, i) => {
@@ -13,18 +13,6 @@ export function Routes({ selectedRoute, changeRoute }) {
           isSelected && "-mr-[10px] italic"
         }`}
       >
-        {/* {page.route === routes.RESOURCES.route ? (
-          <div className={routeContainer}>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className={link}
-              href={pdfLink}
-            >
-              Resources
-            </a>
-          </div>
-        ) : ( */}
         <div
           key={page.route}
           className={routeContainer}
@@ -34,7 +22,6 @@ export function Routes({ selectedRoute, changeRoute }) {
             {page.label}
           </Link>
         </div>
-        {/* )} */}
       </div>
     );
   });
@@ -49,6 +36,24 @@ export default function Nav() {
     <div className={container}>
       <div className={defaultFlex}>
         <Routes {...routesProps} />
+        <div className={routeContainer}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className='text-[10px] hover:underline'
+            href={repoLink}
+          >
+            [site source code]
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className='text-[10px] hover:underline'
+            href={pdfLink}
+          >
+            [reflection tools]
+          </a>
+        </div>
       </div>
     </div>
   );
