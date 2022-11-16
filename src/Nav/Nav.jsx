@@ -7,8 +7,6 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import MenuIcon from "@mui/icons-material/Menu";
-import FilterVintageIcon from '@mui/icons-material/FilterVintage';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
 import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 
 export function Routes({ selectedRoute, changeRoute }) {
