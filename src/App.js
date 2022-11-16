@@ -19,4 +19,4 @@ export default function Home() {
 const container =
   "flex justify-center h-screen text-sm font-[500] font-poppins";
 const content =
-  "md:h-[800px] md:w-[1100px] flex flex-col md:flex-row transition ease-in-out delay-150";
+  "md:w-[1100px] flex flex-col md:flex-row transition ease-in-out delay-150";

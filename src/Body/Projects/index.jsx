@@ -97,7 +97,7 @@ export default function Projects() {
   );
 }
 
-const card = "flex flex-col md:flex-row md:h-[200px] pb-10 bg-white w-3/4";
+const card = "flex flex-col md:flex-row md:h-[200px] mb-20 last:pb-20 bg-white w-3/4";
 const demoImg = "relative cursor-pointer rounded-sm md:w-[250px] h-[145px]";
 const actionContainer = "flex flex-col w-full";
 const linkAction = "h-full w-[40px] ml-[5px]";

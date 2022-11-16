@@ -36,12 +36,16 @@ export function TimelineElement({
     <VerticalTimelineElement
       contentStyle={{ ...contentStyle }}
       contentArrowStyle={contentArrowStyle}
-      iconStyle={work ? workIconStyle : iconStyle}
+      iconStyle={iconStyle}
       icon={work ? WorkIcon : SchoolIcon}
     >
       <div
-        className="rounded-t-md px-2 items-center"
-        style={work ? { borderBottom: "10px solid #491510" } : {}}
+        className="rounded-t-md px-2 items-center timeline-content"
+        style={
+          work
+            ? { borderBottom: "10px solid #7a7025" }
+            : { borderBottom: "10px solid #491510" }
+        }
       >
         <div className="font-bold text-md">{position}</div>
         <div className={`text-xs ${placeLink && "underline"}`}>
@@ -63,7 +67,7 @@ export function TimelineElement({
 export default function Work() {
   return (
     <div className={container}>
-      <VerticalTimeline layout={"2-columns"} lineColor={"black"}>
+      <VerticalTimeline layout={"2-columns"}>
         {Object.values(metier).map((position) => {
           return <TimelineElement {...position} />;
         })}
@@ -87,10 +91,5 @@ const contentArrowStyle = {
 const iconStyle = {
   boxShadow: "none",
   color: "white",
-  borderBottom: '30px solid #a9a9a942'
-};
-
-const workIconStyle = {
-  boxShadow: "none",
-  borderBottom: '30px solid black'
+  backgroundColor: "#4d3036",
 };

@@ -4,7 +4,7 @@ export const icons = {
     PERSON: {
         icon: person,
         link: null,
-        text: 'she/they',
+        text: 'they/she',
         color: '#e5ddd7',
         
     },
@@ -19,7 +19,7 @@ export const icons = {
         icon: email,
         link: 'mailto:violetwmoon@gmail.com',
         text: 'email',
-        color: 'darkgray',
+        color: '#7a7025',
         
     },
     GITHUB: {
@@ -33,6 +33,6 @@ export const icons = {
         icon: linkedin,
         link: 'https://www.linkedin.com/in/violetmoon/',
         text: 'linkedin',
-        color: 'gray',
+        color: '#331702',
     },
 }

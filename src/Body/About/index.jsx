@@ -64,10 +64,13 @@ export default function About() {
 }
 
 const container = "flex flex-col md:flex-row rounded-sm items-center";
-const btnGroup ="flex absolute left-0 bottom-0 -mb-10 md:-mb-6 cursor-pointer";
-const bioContainer = " md:-mt-4 flex relative flex-col h-[220px] border-[1px] rounded-[100%] border-[#ce9080]";
-const blurbImg = "h-auto w-[350px]";
-const imgContainer = "flex bg-[#491510] p-4 rounded-full rounded-r-none pr-0 mr-[40px]";
+const btnGroup = "flex absolute md:left-0 bottom-0 -mb-10 cursor-pointer ml-[20px]";
+const bioContainer = " md:-mt-4 relative h-[250px]";
+const blurbImg =
+  "max-w-[350px] flex flex-col justify-center w-full mt-4 h-full" +
+  " md:m-0 px-4 md:p-4 border-[1px] rounded-[10%] border-[#7a7025]";
+const imgContainer =
+  "flex bg-[#491510] p-4 rounded-full rounded-r-none pr-0 md:mr-[40px] mr-4";
 const portImg = "h-auto w-[220px] rounded-lg rounded-r-none";
 const title = "font-bold text-lg mb-[10px]";
-const textBlurb = blurbImg + " font-[400] leading-1";
+const textBlurb = blurbImg + " font-[400] leading-1 text-xs";
