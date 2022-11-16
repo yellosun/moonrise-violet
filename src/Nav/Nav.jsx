@@ -83,7 +83,7 @@ const container =
 
 const routeContainer =
   "flex flex-col md:items-end w-full text-sm px-4 pb-2 md:pb-1 md:pl-1 md:m-2 first:mt-0 cursor-pointer";
-const subRoutes = " flex flex-nowrap";
+const subRoutes = " flex flex-nowrap text-[#e5ddd7] md:text-black";
 
 const link = "text-[inherit] decoration-none";
 
@@ -124,7 +124,7 @@ export function TemporaryDrawer(routesProps) {
           <List>
             <Routes {...routesProps}/>
           </List>
-          <Divider sx={{ width: 250 }} />
+          <Divider sx={{ marginBottom: 1, backgroundColor: '#e5ddd7' }} />
           <List>
             <SubRoutes />
           </List>

@@ -36,7 +36,7 @@ export function TimelineElement({
     <VerticalTimelineElement
       contentStyle={{ ...contentStyle }}
       contentArrowStyle={contentArrowStyle}
-      iconStyle={iconStyle}
+      iconStyle={work ? workIconStyle : iconStyle}
       icon={work ? WorkIcon : SchoolIcon}
     >
       <div
@@ -91,5 +91,10 @@ const contentArrowStyle = {
 const iconStyle = {
   boxShadow: "none",
   color: "white",
-  backgroundColor: "#4d3036",
+  backgroundColor: "#b17b65bf",
+};
+
+const workIconStyle = {
+  ...iconStyle,
+  backgroundColor: "#e9d96594"
 };
